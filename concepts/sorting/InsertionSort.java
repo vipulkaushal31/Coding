@@ -1,7 +1,6 @@
 package concepts.sorting;
 
-import concepts.utils.InputUtils;
-import concepts.utils.OutputUtils;
+import concepts.utils.*;
 
 public class InsertionSort {
     public static int[] sort(int[] arr) {
