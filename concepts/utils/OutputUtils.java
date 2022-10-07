@@ -7,4 +7,11 @@ public class OutputUtils {
         }
         System.out.println("");
     }
+
+    public static void printKeys(String... StringKeys) {
+        for(int i=0;i< StringKeys.length; i++) {
+            System.out.print(StringKeys[i] + " ");
+        }
+        System.out.println("");
+    }
 }
