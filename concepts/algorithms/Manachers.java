@@ -1,4 +1,5 @@
 package concepts.algorithms;
+
 /*  WikiPedia
  *  Longest_Palindrome(string S) { 
         string S' = S with a bogus character (eg. '|') inserted between each character (including outer boundaries)
@@ -93,67 +94,70 @@ package concepts.algorithms;
 */
 public class Manachers {
     public String processStringForExpansion(String s) {
-        StringBuilder sb = new StringBuilder(s.length()*2 + 1);
+        StringBuilder sb = new StringBuilder(s.length() * 2 + 1);
         sb.append('#');
 
-        for(int i = 0; i< s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             sb.append(s.charAt(i));
             sb.append('#');
         }
 
         return sb.toString();
     }
-    
+
     public String removeHashtagsFromString(String s) {
-        StringBuilder sb = new StringBuilder(s.length()*2 + 1);
-        
-        for(int i = 1; i< s.length(); i+=2){
+        StringBuilder sb = new StringBuilder(s.length() * 2 + 1);
+
+        for (int i = 1; i < s.length(); i += 2) {
             sb.append(s.charAt(i));
         }
-        
+
         return sb.toString();
     }
-    
+
     public String longestPalindromeViaExpansion(String s) {
-        if(s.length() == 1){
-            return s;    
+        if (s.length() == 1) {
+            return s;
         }
-        
+
         String s1 = processStringForExpansion(s);
         int maxLen = 0;
         String result = s;
-        for(int i = 2; i < s1.length() - 1; i++) {
-            // System.out.println("expanding around: " +  s1.charAt(i));
+        for (int i = 2; i < s1.length() - 1; i++) {
+            // System.out.println("expanding around: " + s1.charAt(i));
             int len = 1, pivot = 1;
-            while(i-pivot >= 0 && i + pivot < s1.length() && s1.charAt(i-pivot) == s1.charAt(i+pivot)){
+            while (i - pivot >= 0 && i + pivot < s1.length() && s1.charAt(i - pivot) == s1.charAt(i + pivot)) {
                 pivot++;
-                len+=2;
-                // System.out.println("i: " + i + ", len: " + len + ", string: " + s1.substring(i - len/2, i + 1 + len/2));
+                len += 2;
+                // System.out.println("i: " + i + ", len: " + len + ", string: " +
+                // s1.substring(i - len/2, i + 1 + len/2));
             }
-            
-            if(maxLen < len){
+
+            if (maxLen < len) {
                 maxLen = len;
-                int start = i - len/2;
-                int end = i + (len-1)/2;
-                // System.out.println("start: " + start + ", end: " + end + ", string: " + s1.substring(start, end));
+                int start = i - len / 2;
+                int end = i + (len - 1) / 2;
+                // System.out.println("start: " + start + ", end: " + end + ", string: " +
+                // s1.substring(start, end));
                 result = s1.substring(start, end);
             }
         }
-        
+
         return removeHashtagsFromString(result);
     }
 
     public String longestPalindromeViaManachers(String s) {
-        //TODO
+        // ToDo: Implement Manachers
         return s;
     }
 
     public static void main(String args[]) {
         Manachers m = new Manachers();
-        String[] strArr = new String[]{"babad", "cbbd", "babab", "a"};
+        String[] strArr = new String[] { "babad", "cbbd", "babab", "a" };
 
-        for(int i = 0; i< strArr.length; i++){
-            System.out.println("Longest Palindromic Substring in: " + strArr[i] + " is: " + m.longestPalindromeViaExpansion(strArr[i]));
+        for (int i = 0; i < strArr.length; i++) {
+            System.out.println("Longest Palindromic Substring in: " + strArr[i] + " is: "
+                    + m.longestPalindromeViaExpansion(strArr[i]));
         }
     }
 }
