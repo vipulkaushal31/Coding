@@ -1,4 +1,6 @@
-class Solution {
+// 69. Sqrt(x)
+
+class Sqrt {
     public int mySqrt(int x) {
         if(x < 2){
             return x;
