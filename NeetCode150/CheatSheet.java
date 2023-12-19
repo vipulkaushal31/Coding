@@ -1,11 +1,14 @@
 package NeetCode150;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class CheatSheet {
+    /*
+    ASCII Codes
+    A -> 65....Z -> 90
+    a -> 97....z -> 122
+    0 -> 48
+     */
     /*
      * Arrays
      * dynamically allocated
@@ -26,5 +29,7 @@ public class CheatSheet {
      */
     Map<String, Integer> map = new HashMap<String, Integer>();
     Set<Integer> set = new HashSet<Integer>();
+
+    Stack<Integer> stack = new Stack<>();
 
 }
